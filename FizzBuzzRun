@@ -1,0 +1,64 @@
+public class FizzBuzzRun {
+
+    public static void main(String[] args) {
+        String[] array = new String[100];
+
+        //füllen mit Zahlen von 1 bis 100
+        for(int zahl = 0; zahl <100; zahl++){
+            array[zahl] = String.valueOf(zahl+1);
+        }
+        doFizzBuzz(array);
+        Ausgabe(array);
+
+        int id_bis;
+
+        id_bis = FizzBuzzPlay.getFactor1();
+        System.out.println(id_bis);
+    }
+
+
+
+    public static String[] doFizzBuzz(String[] array) {
+        //Überschreiben
+        for(int zahl = 0; zahl <100; zahl++){
+
+            String element = array[zahl];
+            Integer elemInt = Integer.parseInt(element.trim());
+
+            if (elemInt % 3 == 0 && elemInt % 5 == 0) {  //Vielfache von 3 und 5
+                array[zahl] = "FizzBuzz";
+            } else if (elemInt % 3 == 0) {           //Vielfache von 3
+                array[zahl] = "Fizz";
+            }else if (elemInt % 5 == 0) {            //Vielfache von 5
+                array[zahl] = "Buzz";
+            } else array[zahl] = doVariation(array[zahl]);
+        }
+        return array;
+
+    }
+
+    public static String doVariation(String s){
+        int lange = s.length();
+        int i = 0;
+        int zahl = Integer.parseInt(s);
+        while (lange!= 0){
+            i = zahl%10;
+            zahl = zahl/10;
+            lange--;
+            if (i == 3){
+                s = "Fizz!!!";
+                break;
+            } else if (i == 5){
+                s = "Buzz!!!";
+                break;
+            }
+        }
+        return s;
+    }
+
+    static void Ausgabe(String[] array){
+        for (int i =0; i <array.length; i++){
+            System.out.println(array[i]);
+        }
+    }
+}
