@@ -1,82 +1,69 @@
 public class FizzBuzzGame {
-    public static void main(String[] args) {
 
-        String[] array = new String[100];
+    private String[] array;
+    private int[] factor;
+    private String[] words;
+    boolean variation = false;
 
-        System.out.println("How many numbers do you want to play with?"); // nicht hier!!
-        System.out.print("> ");
-        //FizzBuzzRun.howMuch();
-        FizzBuzzRun.readNumbers();
-        FizzBuzzRun.readWords();
-        CreateArray(array);
-        doFizzBuzz(array);
-        Ausgabe(array);
+    public FizzBuzzGame(int laenge, int[] factor, String[] words) {
+        array = new String[laenge];
+        this.factor = factor;
+        this.words = words;
     }
 
-    public static void CreateArray(String[] array){
-        //füllen mit Zahlen von 1 bis 100
-        for(int zahl = 0; zahl <100; zahl++){
-            array[zahl] = String.valueOf(zahl+1);
+    public String[] start() {
+        createArray();
+        String[] ergebnis = doFizzBuzz(variation);
+        return ergebnis;
+    }
 
+    private void createArray() {
+        //füllen mit Zahlen von 1 bis 100
+        for (int zahl = 0; zahl < array.length; zahl++) {
+            array[zahl] = String.valueOf(zahl + 1);
         }
     }
 
-
-    public static String[] doFizzBuzz(String[] array){
+    private String[] doFizzBuzz(boolean variation) {
         //Überschreiben
 
-        int[] factor = FizzBuzzRun.factor;
-        String[] word = FizzBuzzRun.word;
+        //boolean variation = FizzBuzzRun.askVariation();//!!
 
-
-       for (int zahl = 0; zahl < 100; zahl++) {
+        for (int zahl = 0; zahl < array.length; zahl++) {
             String element = array[zahl];
-            Integer elemInt = Integer.parseInt(element.trim());
+            int elemInt = Integer.parseInt(element.trim());
             String output = "";
 
-           for (int i = 0; i < FizzBuzzRun.quantity; i++) {
-               if (elemInt % factor[i] == 0) {
-                   output += word[i];
-                   //System.out.println(array[zahl] + "------>" + word[i]);
-               }
-               if (output != ""){
-                   array[zahl]= output;
-               }
-           }
-       }
+            for (int i = 0; i < factor.length; i++) {
+                if (elemInt % factor[i] == 0) {
+                    output += words[i];
+                }
+            }
+            //Wenn die Zahl ein Vielfache ist
+            if (!output.equals("")) {
+                array[zahl] = output;
+            }
+            //Wenn kein Vielfache, dann Variation (wenn erlaubt)
+            if (output.equals("")) {
+                if (variation) {
+                    array[zahl] = FizzBuzzExtra.doVariation(array[zahl], factor, words);
+                }
+            }
+        }
 
         return array;
 
     }
 
-   /* public static String doVariation(String s){
-        int lange = s.length();
-        int i = 0;
-        int zahl = Integer.parseInt(s);
-        while (lange!= 0){
-            i = zahl%10;
-            zahl = zahl/10;
-            lange--;
-            if (i == FizzBuzzRun.factor1){
-                s = FizzBuzzRun.word1 + "!!!";
-                break;
-            } else if (i == FizzBuzzRun.factor2){
-                s = FizzBuzzRun.word2  + "!!!";
-                break;
-            }
-        }
-        return s;
-    }*/
-
-    static void Ausgabe(String[] array){
+    void ausgabe() {
         System.out.println("-- Die Ergebnisse --");
-        for (int i =0; i <array.length; i++){
-            System.out.println(array[i]);
+        for (String s : array) {
+            System.out.println(s);
         }
     }
 
-    static String find(String[] array, int i){
-
-        return array[i];
+    int find(String[] array, int i) {
+        String element = array[i];
+        return Integer.parseInt(element.trim());
     }
 }
