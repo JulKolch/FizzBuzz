@@ -110,10 +110,15 @@ class FizzBuzzTest {
         String[] array = new String[100];
         int[] factor = new int[] { 3, 5 };
         String[] words = new String[] { "Fizz", "Buzz" };
-        int variation = 2;
+        int variation = 1;
 
         FizzBuzzGame fizzBuzzGame = new FizzBuzzGame(array.length, factor, words, variation);
         String[] ergebnis = fizzBuzzGame.start();
+
+        //int i = 1;
+        //System.out.println((i + 1) + "---" + fizzBuzzGame.find(ergebnis, i));
+        assertEquals(2, fizzBuzzGame.find(ergebnis, 1));
+
     }
 
     @Test
