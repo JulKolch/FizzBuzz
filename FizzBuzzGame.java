@@ -18,14 +18,14 @@ public class FizzBuzzGame {
         return ergebnis;
     }
 
-    private void createArray() {
+    protected void createArray() {
         //füllen mit Zahlen von 1 bis 100
         for (int zahl = 0; zahl < array.length; zahl++) {
             array[zahl] = String.valueOf(zahl + 1);
         }
     }
 
-    private String[] doFizzBuzz() {
+    protected String[] doFizzBuzz() {
 
         //Überschreiben
         for (int zahl = 0; zahl < array.length; zahl++) {
@@ -42,14 +42,14 @@ public class FizzBuzzGame {
             if (!output.equals("")) {
                 array[zahl] = output;
             }
-            //Wenn kein Vielfache, dann Variation (wenn erlaubt)
+            /*//Wenn kein Vielfache, dann Variation (wenn erlaubt)
             if (output.equals("")) {
                 switch (variation){
                 case 1:
                     array[zahl] = FizzBuzzExtra.doVariation(array[zahl], factor, words);
                     break;
                 }
-            }
+            }*/
         }
 
         return array;
