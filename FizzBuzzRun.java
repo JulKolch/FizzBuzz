@@ -10,9 +10,15 @@ public class FizzBuzzRun {
         int[] factor = fizzbuzzRun.readNumbers();
         String[] words = fizzbuzzRun.readWords();
         int variation = fizzbuzzRun.askVariation();
-        FizzBuzzGame fizzbuzzGame = new FizzBuzzGame(100, factor, words, variation);
-        fizzbuzzGame.start();
-        fizzbuzzGame.ausgabe();
+        if(variation == 1){
+            FizzBuzzExtra fizzBuzzExtra = new FizzBuzzExtra(100, factor, words, variation);
+            fizzBuzzExtra.start();
+            fizzBuzzExtra.ausgabe();
+        } else {
+            FizzBuzzGame fizzbuzzGame = new FizzBuzzGame(100, factor, words, variation);
+            fizzbuzzGame.start();
+            fizzbuzzGame.ausgabe();
+        }
     }
     public FizzBuzzRun(int quantity){
         FizzBuzzRun.quantity = quantity;
