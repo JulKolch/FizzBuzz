@@ -1,21 +1,21 @@
 import java.util.Scanner;
 
 public class FizzBuzzRun {
-
-    private FizzBuzzGame fizzbuzzGame;
+    private static int quantity;
     static Scanner scanner = new Scanner(System.in);
-    int quantity;
-    boolean variation = askVariation();
 
-    public void main(String[] args) {
-        quantity = howMuch();
-
-        int[] factor = readNumbers();
-
-        String[] words = readWords();
-        fizzbuzzGame = new FizzBuzzGame(quantity, factor, words);
+    public static void main(String[] args) {
+        FizzBuzzRun fizzbuzzRun = new FizzBuzzRun(quantity);
+        quantity = fizzbuzzRun.howMuch();
+        int[] factor = fizzbuzzRun.readNumbers();
+        String[] words = fizzbuzzRun.readWords();
+        int variation = fizzbuzzRun.askVariation();
+        FizzBuzzGame fizzbuzzGame = new FizzBuzzGame(100, factor, words, variation);
         fizzbuzzGame.start();
         fizzbuzzGame.ausgabe();
+    }
+    public FizzBuzzRun(int quantity){
+        FizzBuzzRun.quantity = quantity;
     }
 
     private int howMuch() {
@@ -46,16 +46,17 @@ public class FizzBuzzRun {
         return word;
     }
 
-    boolean askVariation() {
-        System.out.println("Möchten Sie Variation aufrufen? [y oder n}");
-        String input = scanner.next();
-        if (input.equals("y") || input.equals("Y")) {
-            return true;
-        } else if (input.equals("n") || input.equals("N")) {
-            return false;
+    private int askVariation() {
+        System.out.println("Welche Variation möchten Sie aufrufen?");
+        System.out.println("[Ziffernersatz - 1 oder keine - 2}");
+        int input = scanner.nextInt();
+        if (input == 1) {
+            return 1;
+        } else if (input == 2) {
+            return 2;
         } else {
             System.out.println("Falsche Eingabe, wird aber trotzdem aufgerufen");
-            return false;
+            return 2;
         }
 
 
