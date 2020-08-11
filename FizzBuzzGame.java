@@ -3,17 +3,18 @@ public class FizzBuzzGame {
     private String[] array;
     private int[] factor;
     private String[] words;
-    boolean variation = false;
+    private int variation;
 
-    public FizzBuzzGame(int laenge, int[] factor, String[] words) {
+    public FizzBuzzGame(int laenge, int[] factor, String[] words, int variation) {
         array = new String[laenge];
         this.factor = factor;
         this.words = words;
+        this.variation = variation;
     }
 
     public String[] start() {
         createArray();
-        String[] ergebnis = doFizzBuzz(variation);
+        String[] ergebnis = doFizzBuzz();
         return ergebnis;
     }
 
@@ -24,11 +25,9 @@ public class FizzBuzzGame {
         }
     }
 
-    private String[] doFizzBuzz(boolean variation) {
+    private String[] doFizzBuzz() {
+
         //Überschreiben
-
-        //boolean variation = FizzBuzzRun.askVariation();//!!
-
         for (int zahl = 0; zahl < array.length; zahl++) {
             String element = array[zahl];
             int elemInt = Integer.parseInt(element.trim());
@@ -45,8 +44,10 @@ public class FizzBuzzGame {
             }
             //Wenn kein Vielfache, dann Variation (wenn erlaubt)
             if (output.equals("")) {
-                if (variation) {
+                switch (variation){
+                case 1:
                     array[zahl] = FizzBuzzExtra.doVariation(array[zahl], factor, words);
+                    break;
                 }
             }
         }
