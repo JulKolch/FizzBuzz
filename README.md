@@ -1,4 +1,4 @@
-# FizzBuzz
+## FizzBuzz
 
 Ein Programm, die die Zahlen von 1 bis 100 zurückgibt. Manche Zahlen waren dabei allerdings übersetzt:
 
