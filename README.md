@@ -30,3 +30,8 @@ Dann können wir eine von mehreren Variationen für das weiteres Spiel auswähle
 # Testen
 - Test für Max und Min array
 - Test für verschiedene Elementen eines Arrays
+
+# Erweiterung
+- Man kann beliebige Zahlen zum Spielen auswählen.
+- Man kann für jede Zahl ein beliebiges Wort auswählen.
+- Man kann nicht nur eine Variation, sondern eine aus der Liste oder sogar mehrere aufrufen.
