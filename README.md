@@ -1,10 +1,11 @@
 # FizzBuzz
 
-Ein Programm, die die Zahlen von 1 bis 100 zurückgibt. Manche Zahlen waren dabei allerdings übersetzt:
+Ein Programm, die die Zahlen von 1 bis 100 zurückgibt. Manche Zahlen sollen dabei allerdings übersetzt werden:
 
 Für Vielfache von 3 gibt „Fizz“ aus.
 Für Vielfache von 5 gib „Buzz“ aus.
 Für Vielfache von 3 und 5 gib „FizzBuzz“ aus.
+
 >Beispiel:
  ```
 1
@@ -25,3 +26,5 @@ FizzBuz
 
 
 # Testen
+- Test für Max und Min array
+- Test für verschiedene Elementen eines Arrays
