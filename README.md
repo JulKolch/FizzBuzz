@@ -20,6 +20,7 @@ Fizz
 FizzBuz
 16
  ```
+Dann können wir eine von mehreren Variationen für das weiteres Spiel auswählen.
 
 # Variation
 1) „Fizz“ soll auch zurückgegeben werden, wenn die Zahl eine 3 als Ziffer enthält, z.B. 13. „Buzz“ soll auch zurückgegeben werden, wenn die Zahl eine 5 als Ziffer enthält, z.B. 52.
