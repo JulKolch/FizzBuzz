@@ -145,6 +145,13 @@ class FizzBuzzTest {
         FizzBuzzGame fizzBuzzGame = new FizzBuzzGame(array.length, factor, words, variation);
         String[] ergebnis = fizzBuzzGame.start();
         assertEquals(String.valueOf(i+1), ergebnis[i]);
+        assertTrue(variation == 2);
+    }
+
+    @Test
+    public void ifVariation() {
+        int variation = 1;
+        assertTrue(FizzBuzzGame.ifVariation(variation));
     }
 
 }
