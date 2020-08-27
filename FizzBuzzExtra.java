@@ -18,10 +18,6 @@
 
 public class FizzBuzzExtra extends FizzBuzzGame {
 
-    private String[] array;
-    private int[] factor;
-    private String[] words;
-    private int variation;
 
     public FizzBuzzExtra(int laenge, int[] factor, String[] words, int variation) {
         super(laenge, factor, words, variation);
@@ -31,30 +27,16 @@ public class FizzBuzzExtra extends FizzBuzzGame {
     @Override
     public String[] start() {
         super.createArray();
-        String[] ergebnis = doFizzBuzz();
+        super.doFizzBuzz();
+        String[] ergebnis = doVariation(array);
         return ergebnis;
     }
 
-    @Override
-    protected String[] doFizzBuzz() {
-        //@Yulia - hier kommt dann dein doVariationCode rein
 
-        for (int zahl = 0; zahl < array.length; zahl++) {
-            String element = array[zahl];
-            int elemInt = Integer.parseInt(element.trim());
-            String output = "";
+    public String[] doVariation(String[] array) {
 
-            for (int i = 0; i < factor.length; i++) {
-                if (elemInt % factor[i] == 0) {
-                    output += words[i];
-                }
-            }
-            //Wenn die Zahl ein Vielfache ist
-            if (!output.equals("")) {
-                array[zahl] = output;
-            }
             //Wenn kein Vielfache, dann Variation (wenn erlaubt)
-            if (output.equals("")) {
+            /*if (output.equals("")) {
                 for (int i = 0; i < factor.length; i++) {
                     int lange = element.length();
                     int ziffer = 0;
@@ -74,8 +56,8 @@ public class FizzBuzzExtra extends FizzBuzzGame {
                     output += "!!!";
                     array[zahl] = output;
                 }
-            }
-        }
+            }*/
+
 
         return array;
 
