@@ -1,9 +1,10 @@
 public class FizzBuzzGame {
 
-    private String[] array;
-    private int[] factor;
-    private String[] words;
-    private int variation;
+    protected String[] array;
+    protected int[] factor;
+    protected String[] words;
+    protected static int variation;
+    protected String output = ""; //Fehler, funktioniert nicht
 
     public FizzBuzzGame(int laenge, int[] factor, String[] words, int variation) {
         array = new String[laenge];
@@ -23,6 +24,8 @@ public class FizzBuzzGame {
         for (int zahl = 0; zahl < array.length; zahl++) {
             array[zahl] = String.valueOf(zahl + 1);
         }
+
+        System.out.println(array[0]);
     }
 
     protected String[] doFizzBuzz() {
@@ -31,7 +34,7 @@ public class FizzBuzzGame {
         for (int zahl = 0; zahl < array.length; zahl++) {
             String element = array[zahl];
             int elemInt = Integer.parseInt(element.trim());
-            String output = "";
+            //String output = "";
 
             for (int i = 0; i < factor.length; i++) {
                 if (elemInt % factor[i] == 0) {
@@ -42,14 +45,7 @@ public class FizzBuzzGame {
             if (!output.equals("")) {
                 array[zahl] = output;
             }
-            /*//Wenn kein Vielfache, dann Variation (wenn erlaubt)
-            if (output.equals("")) {
-                switch (variation){
-                case 1:
-                    array[zahl] = FizzBuzzExtra.doVariation(array[zahl], factor, words);
-                    break;
-                }
-            }*/
+            System.out.println(output + "<--");
         }
 
         return array;
@@ -66,5 +62,11 @@ public class FizzBuzzGame {
     int find(String[] array, int i) {
         String element = array[i];
         return Integer.parseInt(element.trim());
+    }
+    static boolean ifVariation(int variation){
+        System.out.println(variation);
+        if(variation == 1)
+            return true;
+        else return false;
     }
 }
