@@ -10,7 +10,7 @@ public class FizzBuzzRun {
         int[] factor = fizzbuzzRun.readNumbers();
         String[] words = fizzbuzzRun.readWords();
         int variation = fizzbuzzRun.askVariation();
-        if(variation == 1){
+        if (variation == 1) {
             FizzBuzzExtra fizzBuzzExtra = new FizzBuzzExtra(100, factor, words, variation);
             fizzBuzzExtra.start();
             fizzBuzzExtra.ausgabe();
@@ -20,7 +20,8 @@ public class FizzBuzzRun {
             fizzbuzzGame.ausgabe();
         }
     }
-    public FizzBuzzRun(int quantity){
+
+    public FizzBuzzRun(int quantity) {
         FizzBuzzRun.quantity = quantity;
     }
 
@@ -64,7 +65,5 @@ public class FizzBuzzRun {
             System.out.println("Falsche Eingabe, wird aber trotzdem aufgerufen");
             return 2;
         }
-
-
     }
 }
