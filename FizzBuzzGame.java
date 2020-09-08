@@ -1,10 +1,10 @@
 public class FizzBuzzGame {
 
     protected String[] array;
-    protected int[] factor;
-    protected String[] words;
+    protected static int[] factor;
+    protected static String[] words;
     protected static int variation;
-    protected String output = ""; //Fehler, funktioniert nicht
+    protected String output = "";
 
     public FizzBuzzGame(int laenge, int[] factor, String[] words, int variation) {
         array = new String[laenge];
@@ -23,15 +23,15 @@ public class FizzBuzzGame {
         //füllen mit Zahlen von 1 bis 100
         for (int zahl = 0; zahl < array.length; zahl++) {
             array[zahl] = String.valueOf(zahl + 1);
+            output = "";
         }
-
-        System.out.println(array[0]);
     }
 
     protected String[] doFizzBuzz() {
 
         //Überschreiben
         for (int zahl = 0; zahl < array.length; zahl++) {
+
             String element = array[zahl];
             int elemInt = Integer.parseInt(element.trim());
             //String output = "";
@@ -45,8 +45,11 @@ public class FizzBuzzGame {
             if (!output.equals("")) {
                 array[zahl] = output;
             }
-            System.out.println(output + "<--");
+            output = "";
         }
+        /*if (variation == 1){
+            FizzBuzzExtra.doVariation(array, output);
+        }*/
 
         return array;
 
@@ -63,10 +66,13 @@ public class FizzBuzzGame {
         String element = array[i];
         return Integer.parseInt(element.trim());
     }
-    static boolean ifVariation(int variation){
+
+    static boolean ifVariation(int variation) {
         System.out.println(variation);
-        if(variation == 1)
+        if (variation == 1) {
             return true;
-        else return false;
+        } else {
+            return false;
+        }
     }
 }
